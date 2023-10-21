@@ -148,13 +148,14 @@ autocmd({ "BufEnter" }, {
     group = "DefaultFormatOption",
     pattern = "*",
     callback = function()
-        vim.opt_local.formatoptions:append({
+        vim.opt_local.formatoptions = {
             t = true, -- Wrap text using `textwidth`
             c = true, -- Wrap comment using `textwidth`
+            q = true, -- Enable formatting of comment with `gq`
             r = true, -- Continue comment on Enter in insert mode
             n = true, -- Detect list for formatting
             j = true, -- Remove comment leader when joining lines
             b = true, -- Auto wrap in insert mode, ignore old lines
-        })
+        }
     end,
 })
