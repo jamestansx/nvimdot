@@ -1,9 +1,5 @@
 local autocmd = require("jamestansx.utils").create_autocmd
 
--- Space as leader key
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -34,7 +30,7 @@ vim.opt.pumheight = 5
 vim.opt.confirm = true
 vim.opt.autowriteall = true
 
-vim.opt.updatetime = 50
+vim.opt.updatetime = 300
 vim.opt.timeoutlen = 300
 vim.opt.ttimeoutlen = 10
 
