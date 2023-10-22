@@ -8,4 +8,11 @@ function M.create_autocmd(event, opts)
     vim.api.nvim_create_autocmd(event, opts)
 end
 
+-- Guard callback of autocmd for filetypes
+function M.ft_guard(callback, opts)
+    if not vim.tbl_contains(opts.ignore_ft or {}, opts.ft or "") then
+        callback()
+    end
+end
+
 return M
