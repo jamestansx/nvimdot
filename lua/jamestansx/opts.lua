@@ -36,6 +36,7 @@ vim.opt.autowriteall = true
 
 vim.opt.updatetime = 50
 vim.opt.timeoutlen = 300
+vim.opt.ttimeoutlen = 10
 
 vim.opt.virtualedit = {
     "block", -- Visual block mode
