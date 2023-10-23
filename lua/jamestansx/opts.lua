@@ -30,7 +30,8 @@ vim.opt.pumheight = 5
 vim.opt.confirm = true
 vim.opt.autowriteall = true
 
-vim.opt.updatetime = 300
+vim.opt.redrawtime = 1000
+vim.opt.updatetime = 100
 vim.opt.timeoutlen = 300
 vim.opt.ttimeoutlen = 10
 
@@ -93,6 +94,7 @@ vim.opt.shiftround = true
 
 vim.opt.wrap = false
 vim.opt.breakindent = true
+vim.opt.breakindentopt = "sbr"
 vim.opt.linebreak = true -- Only break at `breakat` chars
 vim.opt.showbreak = "↪"
 vim.opt.breakat = [[ ,]]
@@ -129,13 +131,12 @@ vim.opt.jumpoptions = { "stack", "view" }
 
 vim.diagnostic.config({
     virtual_text = { source = "if_many" },
-    signs = true,
     severity_sort = true,
     update_in_insert = true,
 })
 
 -- Require `ripgrep`
-if vim.fn.executable("rg") then
+if vim.fn.executable("rg") == 1 then
     vim.opt.grepprg = "rg --no-heading --smart-case --vimgrep"
     vim.opt.grepformat = "%f:%l:%c:%m,%f:%l:%m"
 end

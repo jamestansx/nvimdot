@@ -15,4 +15,22 @@ function M.ft_guard(callback, opts)
     end
 end
 
+-- Remove documentation from lsp request result (for signature help)
+function M.lsp_remove_docs(docs)
+    if docs == nil then
+        return
+    end
+
+    for i = 1, #docs.signatures do
+        if docs.signatures[i] and docs.signatures[i].documentation then
+            if docs.signatures[i].documentation.value then
+                docs.signatures[i].documentation.value = nil
+            else
+                docs.signatures[i].documentation = nil
+            end
+        end
+    end
+    return docs
+end
+
 return M

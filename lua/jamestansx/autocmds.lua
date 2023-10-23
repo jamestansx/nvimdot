@@ -157,3 +157,12 @@ autocmd({ "FileType" }, {
         vim.api.nvim_buf_set_keymap(args.buf, "n", "q", "<CMD>close<CR>", { silent = true, noremap = true })
     end,
 })
+
+autocmd({ "LspAttach" }, {
+    desc = "Setup LSP mappings",
+    group = "LspConfig",
+    callback = function(ev)
+        vim.api.nvim_buf_set_option(ev.buf, "omnifunc", "v:lua.vim.lsp.omnifunc")
+        require("plugins.lsp.keymaps").on_attach(ev.buf)
+    end,
+})
