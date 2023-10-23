@@ -27,6 +27,7 @@ return {
         },
     },
     {
+        -- TODO: Replace it with nvim-lspconfig dartls
         "akinsho/flutter-tools.nvim",
         ft = { "dart" },
         dependencies = {
